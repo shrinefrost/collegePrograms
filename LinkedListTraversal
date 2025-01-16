@@ -1,0 +1,48 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+
+struct  Node
+{   
+    int data;
+    struct Node *link;
+};
+
+//this how we so traversal in linked list
+void linkedListTraversal(struct Node * temp) {
+    while(temp){
+        printf("data in temp is:%d \n" , temp->data);
+        temp = temp->link;
+        printf("data after updating %d \n",temp);
+    }
+}
+
+
+
+int main()
+{
+    struct Node *head;
+    struct Node *second;
+    struct Node *third;
+    struct Node *temp;
+    
+
+    head = (struct Node *)malloc(sizeof(struct Node));
+    second = (struct Node *)malloc(sizeof(struct Node));
+    third = (struct Node *)malloc(sizeof(struct Node));
+
+    head->data = 1;
+    head->link = second;
+
+    second->data = 2;
+    second->link = third;
+
+    third->data = 3;
+    third->link = NULL;
+    
+    temp = head;
+    linkedListTraversal(temp);
+
+
+        return 0;
+}
