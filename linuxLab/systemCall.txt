@@ -1,0 +1,42 @@
+
+Return Value of fork():
+
+In the parent process, fork() returns the Process ID (PID) of the child process.
+In the child process, fork() returns 0.
+If the fork() call fails, it returns -1 (e.g., due to insufficient system resources).
+
+
+Explanation:
+The printf("Before fork()") runs once, before the fork() call.
+After fork():
+The parent process prints:
+"I am the parent process..."
+"This will be printed by both parent and child."
+The child process prints:
+"I am the child process..."
+"This will be printed by both parent and child."
+
+#include <stdio.h>
+#include <unistd.h>
+
+int main() {
+    printf("Before fork()\n");
+
+    pid_t pid = fork(); // Create a new process
+    printf("%d",pid);
+
+    if (pid == 0) {
+        // Code for the child process
+        printf("I am the child process. My PID is %d\n", getpid());
+    } else if (pid > 0) {
+        // Code for the parent process
+        printf("I am the parent process. My child's PID is %d\n", pid);
+    } else {
+        // If fork() fails
+        printf("Fork failed!\n");
+    }
+
+    printf("This will be printed by both parent and child.\n");
+    return 0;
+}
+
