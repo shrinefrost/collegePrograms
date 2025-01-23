@@ -44,15 +44,37 @@ class LinkedList {
         }
     }
     
-    public void order() {
+    public void increasingOrder() {
         Node tempUpper = head;
         Node tempLower = head;
-        
+        System.out.println("IncreasingOrder");
         while (tempUpper!= null) {
             int min = tempUpper.data;
             tempLower = tempUpper.next;
             while (tempLower!= null) {
                 if (min >= tempLower.data) {
+                    int tempVar = tempLower.data;
+                    tempLower.data = min;
+                    tempUpper.data = tempVar;
+                    min = tempVar;
+                }
+                tempLower = tempLower.next;
+            }
+            tempUpper = tempUpper.next;
+
+        }
+        display();
+    }
+    
+    public void decreasingOrder() {
+        Node tempUpper = head;
+        Node tempLower = head;
+        System.out.println("decreasingOrder");
+        while (tempUpper!= null) {
+            int min = tempUpper.data;
+            tempLower = tempUpper.next;
+            while (tempLower!= null) {
+                if (min <= tempLower.data) {
                     int tempVar = tempLower.data;
                     tempLower.data = min;
                     tempUpper.data = tempVar;
@@ -73,7 +95,7 @@ class LinkedList {
 
 
 
-public class OrderLinkedList {
+public class Main {
     public static void main(String[] args) {
         LinkedList linkedlist = new LinkedList();
 
@@ -86,7 +108,8 @@ public class OrderLinkedList {
 
         linkedlist.display();
 
-        linkedlist.order();
+        linkedlist.increasingOrder();
+        linkedlist.decreasingOrder();
         
     }
 }
