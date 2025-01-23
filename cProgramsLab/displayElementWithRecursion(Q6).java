@@ -36,7 +36,9 @@ class LinkedList {
         if(temp==null){
             return null;
         }
-        System.out.print(temp.data + "->");
+        System.out.print(temp.data);
+        if (temp.next != null)
+            System.out.print(" -> ");
         display(temp.next);
         return null;
     }
