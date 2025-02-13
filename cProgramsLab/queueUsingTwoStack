@@ -1,0 +1,81 @@
+package week5;
+
+class Node {
+    int data;
+    Node next;
+    Node(int data){
+        this.data = data;
+        next =null;
+    }
+}
+
+class Queue {
+    Node head = null;
+    Node topFirst =null;
+    Node topSecond =null;
+
+    public void addStackFirst (int data){
+        if(topFirst ==null){
+            Node newNode = new Node(data);
+            topFirst =newNode;
+            return;
+        }
+        else{
+            Node newNode = new Node(data);
+            newNode.next = topFirst;
+            topFirst = newNode;
+        }
+    }
+
+    public void popStackFirst(int data){
+        if(topFirst ==null) System.out.println("No element to pop");
+        else{
+            Node temp = topFirst.next;
+            topFirst.next = null;
+            topFirst = temp;
+
+        }
+    }
+
+    public void addStackSecond (int data){
+        if(topSecond ==null){
+            Node newNode = new Node(data);
+            topSecond =newNode;
+            return;
+        }
+        else{
+            Node newNode = new Node(data);
+            newNode.next = topSecond;
+            topSecond = newNode;
+        }
+    }
+
+    public void popStackSecond(int data){
+        if(topSecond ==null) System.out.println("No element to pop");
+        else{
+            Node temp = topSecond.next;
+            topSecond.next = null;
+            topSecond = temp;
+
+        }
+    }
+
+    public void enqueue(int data){
+        addStackFirst(data);
+    }
+}
+
+public class Program15 {
+    public static void main(String[] args) {
+        Queue q = new Queue();
+        q.
+        q.addStackFirst(33);
+        q.addStackFirst(13);
+        q.addStackFirst(10);
+
+
+        
+    }
+
+    
+}
